@@ -95,41 +95,41 @@
 - (void)setDataCount:(int)count range:(double)range
 {
     NSMutableArray *yVals1 = [[NSMutableArray alloc] init];
-    NSMutableArray *yVals2 = [[NSMutableArray alloc] init];
-    NSMutableArray *yVals3 = [[NSMutableArray alloc] init];
+//    NSMutableArray *yVals2 = [[NSMutableArray alloc] init];
+//    NSMutableArray *yVals3 = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < count; i++)
     {
         double val = (double) (arc4random_uniform(range)) + 3;
-        [yVals1 addObject:[[ChartDataEntry alloc] initWithX:(double)i y:val]];
+        [yVals1 addObject:[[ChartDataEntry alloc] initWithX:val y:1]];
         
-        val = (double) (arc4random_uniform(range)) + 3;
-        [yVals2 addObject:[[ChartDataEntry alloc] initWithX:(double)i + 0.33 y:val]];
-        
-        val = (double) (arc4random_uniform(range)) + 3;
-        [yVals3 addObject:[[ChartDataEntry alloc] initWithX:(double)i + 0.66 y:val]];
+//        val = (double) (arc4random_uniform(range)) + 3;
+//        [yVals2 addObject:[[ChartDataEntry alloc] initWithX:(double)i + 0.33 y:val]];
+//
+//        val = (double) (arc4random_uniform(range)) + 3;
+//        [yVals3 addObject:[[ChartDataEntry alloc] initWithX:(double)i + 0.66 y:val]];
     }
     
     ScatterChartDataSet *set1 = [[ScatterChartDataSet alloc] initWithValues:yVals1 label:@"DS 1"];
     [set1 setScatterShape:ScatterShapeSquare];
     [set1 setColor:ChartColorTemplates.colorful[0]];
-    ScatterChartDataSet *set2 = [[ScatterChartDataSet alloc] initWithValues:yVals2 label:@"DS 2"];
-    [set2 setScatterShape:ScatterShapeCircle];
-    set2.scatterShapeHoleColor = ChartColorTemplates.colorful[3];
-    set2.scatterShapeHoleRadius = 3.5f;
-    [set2 setColor:ChartColorTemplates.colorful[1]];
-    ScatterChartDataSet *set3 = [[ScatterChartDataSet alloc] initWithValues:yVals3 label:@"DS 3"];
-    [set3 setScatterShape:ScatterShapeCross];
-    [set3 setColor:ChartColorTemplates.colorful[2]];
+//    ScatterChartDataSet *set2 = [[ScatterChartDataSet alloc] initWithValues:yVals2 label:@"DS 2"];
+//    [set2 setScatterShape:ScatterShapeCircle];
+//    set2.scatterShapeHoleColor = ChartColorTemplates.colorful[3];
+//    set2.scatterShapeHoleRadius = 3.5f;
+//    [set2 setColor:ChartColorTemplates.colorful[1]];
+//    ScatterChartDataSet *set3 = [[ScatterChartDataSet alloc] initWithValues:yVals3 label:@"DS 3"];
+//    [set3 setScatterShape:ScatterShapeCross];
+//    [set3 setColor:ChartColorTemplates.colorful[2]];
     
     set1.scatterShapeSize = 8.0;
-    set2.scatterShapeSize = 8.0;
-    set3.scatterShapeSize = 8.0;
+//    set2.scatterShapeSize = 8.0;
+//    set3.scatterShapeSize = 8.0;
     
     NSMutableArray *dataSets = [[NSMutableArray alloc] init];
     [dataSets addObject:set1];
-    [dataSets addObject:set2];
-    [dataSets addObject:set3];
+//    [dataSets addObject:set2];
+//    [dataSets addObject:set3];
     
     ScatterChartData *data = [[ScatterChartData alloc] initWithDataSets:dataSets];
     [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:7.f]];
